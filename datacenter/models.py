@@ -7,30 +7,25 @@ def get_duration(visit):
     entered = django.utils.timezone.localtime(visit.entered_at)
     leaved = django.utils.timezone.localtime(visit.leaved_at)
     duration = leaved - entered
-    return duration.total_seconds()
+    return duration
 
 
 def format_duration(duration):
     seconds_in_hour = 3600
     seconds_in_minute = 60
-    seconds_in_day = 86400
     hours_in_day = 24
-    days = duration // (hours_in_day * seconds_in_hour)
-    hours = (duration - (days * seconds_in_day)) // seconds_in_hour
-    minutes = (
-                duration - (days * seconds_in_day + hours * seconds_in_hour)
-              ) // seconds_in_minute
-    seconds = (
-            duration - (days * seconds_in_day + hours * seconds_in_hour +
-                        minutes * seconds_in_minute)
-    )
+    total_second = duration.seconds
+    days = duration.days
+    hours = (days * hours_in_day) // seconds_in_hour
+    minutes = (total_second % seconds_in_hour) // seconds_in_minute
+    seconds = (total_second % seconds_in_minute)
     total_time_in = datetime.time(int(hours), int(minutes), int(seconds))
     return f'{total_time_in.strftime("%H:%M:%S")}'
 
 
 def is_visit_long(visit, minutes=60):
     seconds_in_minute = 60
-    total_second = get_duration(visit)
+    total_second = get_duration(visit).total_seconds()
     how_long_inside = total_second // seconds_in_minute
     return how_long_inside > minutes
 
