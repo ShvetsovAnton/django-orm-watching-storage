@@ -32,9 +32,7 @@ def is_visit_long(visit, minutes=60):
     seconds_in_minute = 60
     total_second = get_duration(visit)
     how_long_inside = total_second // seconds_in_minute
-    if how_long_inside > minutes:
-        return True
-    return False
+    return how_long_inside > minutes
 
 
 class Passcard(models.Model):
