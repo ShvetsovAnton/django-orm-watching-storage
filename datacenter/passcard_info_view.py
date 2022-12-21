@@ -6,7 +6,7 @@ from .models import is_visit_long, get_duration, format_duration
 
 def passcard_info_view(request, passcode):
     this_passcard_visits = []
-    passcard = get_object_or_404(Passcard.objects.filter(passcode=passcode))
+    passcard = get_object_or_404(Passcard, passcode=passcode)
     visits = Visit.objects.filter(passcard=passcard, leaved_at__isnull=False)
     for visit in visits:
         duration = get_duration(visit)
