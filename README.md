@@ -17,15 +17,33 @@ Django проект
 
 Для этого перейдите на сайт [dvmn.org](https://dvmn.org/modules/django-orm/lesson/watching-storage/#1)
 
-В первом уроке будут доступны данные для подключения к тестовой базе[![imageup.ru](https://imageup.ru/img51/4126717/chrome_bae1b7n6bv.png)](https://imageup.ru/img51/4126717/chrome_bae1b7n6bv.png.html)
-Данные из урока прописать в файле `settings.py`
-[![imageup.ru](https://imageup.ru/img177/4126729/pycharm64_fxpjrnxsxd.png)](https://imageup.ru/img177/4126729/pycharm64_fxpjrnxsxd.png.html)
-Либо ввести свои данные для подключения к базе.
+В первом уроке будут доступны данные для подключения к тестовой базе
+
+[![imageup.ru](https://imageup.ru/img51/4126717/chrome_bae1b7n6bv.png)](https://imageup.ru/img51/4126717/chrome_bae1b7n6bv.png.html)
+
+1. Создать файл `.env`
+2. Положите в корневую папку проекта
+3. Данные из урока прописать в файле `.env`
+
+Заполнение полей в `.env`:
+
+ ```python
+DJANGO_DB_ENGINE="django.db.backends.postgresql_psycopg2"
+DJANGO_DB_HOST="ссылка на базу"
+DJANGO_DB_PORT="номер порта"
+DJANGO_DB_NAME="имя базы"
+DJANGO_DB_USER="имя пользователя"
+DJANGO_DB_PASSWORD="пароль"
+DJANGO_DB_SECRET_KEY="секретный ключ"
+DJANGO_DB_DEBUG="значение True/False" - устанавливает отображение дебага на сайте
+```
 ## Как запустить скрипт
 
 ```python
-python main.py
+python manage.py runserver
 ```
+
+Сайт будет доступен по локальному адресу - http://127.0.0.1:8000/
 
 ## Требования к окружению
 
@@ -35,5 +53,3 @@ Python3 должен быть уже установлен.
 ```python
 pip install -r requirements.txt
 ```
-
-
