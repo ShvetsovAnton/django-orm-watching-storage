@@ -5,30 +5,30 @@ from environs import Env
 
 env = Env()
 env.read_env()
-django_db_engine = env.str("DJANGO_DB_ENGINE")
-django_db_host = env.str("DJANGO_DB_HOST")
-django_db_port = env.str("DJANGO_DB_PORT")
-django_db_name = env.str("DJANGO_DB_NAME")
-django_db_user = env.str("DJANGO_DB_USER")
-django_db_password = env.str("DJANGO_DB_PASSWORD")
-django_db_secretkey = env.str("DJANGO_DB_SECRET_KEY")
-django_db_debug = env.bool("DJANGO_DB_DEBUG")
+db_engine = env.str("DB_ENGINE")
+db_host = env.str("DB_HOST")
+db_port = env.str("DB_PORT")
+db_name = env.str("DB_NAME")
+db_user = env.str("DB_USER")
+db_password = env.str("DB_PASSWORD")
+secretkey = env.str("DB_SECRET_KEY")
+debug = env.bool("DB_DEBUG")
 DATABASES = {
     'default': {
-        'ENGINE': django_db_engine,
-        'HOST': django_db_host,
-        'PORT': django_db_port,
-        'NAME': django_db_name,
-        'USER': django_db_user,
-        'PASSWORD': django_db_password,
+        'ENGINE': db_engine,
+        'HOST': db_host,
+        'PORT': db_port,
+        'NAME': db_name,
+        'USER': db_user,
+        'PASSWORD': db_password,
     }
 }
 
 INSTALLED_APPS = ['datacenter']
 
-SECRET_KEY = django_db_secretkey
+SECRET_KEY = secretkey
 
-DEBUG = django_db_debug
+DEBUG = debug
 
 ROOT_URLCONF = 'project.urls'
 
