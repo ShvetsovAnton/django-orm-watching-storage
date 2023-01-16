@@ -11,8 +11,8 @@ db_port = env.str("DB_PORT")
 db_name = env.str("DB_NAME")
 db_user = env.str("DB_USER")
 db_password = env.str("DB_PASSWORD")
-secretkey = env.str("DB_SECRET_KEY")
-debug = env.bool("DB_DEBUG")
+secretkey = env.str("SECRET_KEY")
+debug = env.bool("DEBUG")
 DATABASES = {
     'default': {
         'ENGINE': db_engine,
