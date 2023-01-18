@@ -11,8 +11,9 @@ db_port = env.str("DB_PORT")
 db_name = env.str("DB_NAME")
 db_user = env.str("DB_USER")
 db_password = env.str("DB_PASSWORD")
-secretkey = env.str("SECRET_KEY")
-debug = env.bool("DEBUG")
+secretkey = env.str("SECRET_KEY", "REPLACE_ME")
+debug = env.bool("DEBUG", False)
+allowed_host = env.list("ALLOWED_HOSTS", ["192.168.0.101"])
 DATABASES = {
     'default': {
         'ENGINE': db_engine,
@@ -32,7 +33,7 @@ DEBUG = debug
 
 ROOT_URLCONF = 'project.urls'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = allowed_host
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
