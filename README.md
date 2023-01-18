@@ -34,8 +34,6 @@ DJANGO_DB_PORT="номер порта"
 DJANGO_DB_NAME="имя базы"
 DJANGO_DB_USER="имя пользователя"
 DJANGO_DB_PASSWORD="пароль"
-DJANGO_DB_SECRET_KEY="секретный ключ"
-DJANGO_DB_DEBUG="значение True/False" - устанавливает отображение дебага на сайте
 ```
 ## Как запустить скрипт
 
